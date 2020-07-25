@@ -30,11 +30,18 @@ var uploadRoutes = require('./routes/upload');
 var imagenesRoutes = require('./routes/imagenes');
 
 //Conexión a la base de datos
-mongoose.connect(process.env.MONGODB_URI , 
-{ useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, tlsAllowInvalidHostnames: true,
-tlsAllowInvalidCertificates: true })
-        .then(() => console.log( 'Base de datos \x1b[32m%s\x1b[0m', 'online' ))
-        .catch(err => console.log( err ));
+/*mongoose.connect(process.env.MONGODB_URI,
+    {
+        useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, tlsAllowInvalidHostnames: true,
+        tlsAllowInvalidCertificates: true
+    })
+    .then(() => console.log('Base de datos \x1b[32m%s\x1b[0m', 'online'))
+    .catch(err => console.log(err));*/
+
+mongoose.connection.openUri(process.env.MONGODB_URI , { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }, (err, res) => {
+    if (err) throw err;
+    console.log('Base de datos \x1b[32m%s\x1b[0m', 'online');
+});
 
 //Rutas
 app.use('/usuario', usuarioRoutes);
@@ -48,7 +55,7 @@ app.use('/img', imagenesRoutes);
 app.use('/', appRoutes);
 
 //Configuración
-const port =  process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 //Escuchar peticiones
 app.listen(port, () => {
