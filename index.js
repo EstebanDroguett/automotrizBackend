@@ -36,12 +36,6 @@ tlsAllowInvalidCertificates: true })
         .then(() => console.log( 'Base de datos \x1b[32m%s\x1b[0m', 'online' ))
         .catch(err => console.log( err ));
 
-/*mongoose.connection.openUri(process.env.MONGODB_URL || 'mongodb+srv://esteban:admin123456@cluster0.bhlbp.mongodb.net/automotrizDB?retryWrites=true&w=majority', 
-{ useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }, (err, res) => {
-    if (err) throw err;
-    console.log('Base de datos \x1b[32m%s\x1b[0m', 'online');
-});*/
-
 //Rutas
 app.use('/usuario', usuarioRoutes);
 app.use('/vehiculo', vehiculoRoutes);
