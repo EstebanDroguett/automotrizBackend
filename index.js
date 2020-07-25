@@ -1,5 +1,7 @@
 //Requires
-require('dotenv').config();
+require('dotenv').config({
+    path: `.env.${process.env.NODE_ENV || 'development'}`
+});
 
 var express = require('express');
 var mongoose = require('mongoose');
@@ -41,6 +43,10 @@ mongoose.connection.openUri(process.env.MONGODB_URI , { useNewUrlParser: true, u
     if (err) throw err;
     console.log('Base de datos \x1b[32m%s\x1b[0m', 'online');
 });
+
+/*app.get('/', (req, res) => {
+    res.send(process.env.MONGODB_URI);
+});*/
 
 //Rutas
 app.use('/usuario', usuarioRoutes);
