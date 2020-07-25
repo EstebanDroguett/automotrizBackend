@@ -30,7 +30,7 @@ var uploadRoutes = require('./routes/upload');
 var imagenesRoutes = require('./routes/imagenes');
 
 //Conexión a la base de datos
-mongoose.connect(process.env.MONGODB_URL , 
+mongoose.connect(process.env.MONGODB_URI , 
 { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, tlsAllowInvalidHostnames: true,
 tlsAllowInvalidCertificates: true })
         .then(() => console.log( 'Base de datos \x1b[32m%s\x1b[0m', 'online' ))
