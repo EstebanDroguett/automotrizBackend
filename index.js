@@ -13,7 +13,6 @@ var app = express();
 //CORS
 app.use(cors());
 
-
 //Body-parser
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
