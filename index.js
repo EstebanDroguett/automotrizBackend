@@ -14,6 +14,7 @@ var app = express();
 
 //CORS
 app.use(cors());
+app.options('*', cors());
 
 //Body-parser
 // parse application/x-www-form-urlencoded
