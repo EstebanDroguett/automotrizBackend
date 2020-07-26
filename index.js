@@ -3,14 +3,14 @@ require('dotenv').config({
     path: `.env.${process.env.NODE_ENV || 'development'}`
 });
 
-var express = require('express');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const cors = require('cors');
 
 //Inicializar variables
-var app = express();
+const app = express();
 
 //CORS
 app.use(cors());
@@ -30,14 +30,14 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 //Importar rutas
-var appRoutes = require('./routes/app');
-var usuarioRoutes = require('./routes/usuario');
-var loginRoutes = require('./routes/login');
-var vehiculoRoutes = require('./routes/vehiculo');
-var repuestoRoutes = require('./routes/repuesto');
-var busquedaRoutes = require('./routes/busqueda');
-var uploadRoutes = require('./routes/upload');
-var imagenesRoutes = require('./routes/imagenes');
+const appRoutes = require('./routes/app');
+const usuarioRoutes = require('./routes/usuario');
+const loginRoutes = require('./routes/login');
+const vehiculoRoutes = require('./routes/vehiculo');
+const repuestoRoutes = require('./routes/repuesto');
+const busquedaRoutes = require('./routes/busqueda');
+const uploadRoutes = require('./routes/upload');
+const imagenesRoutes = require('./routes/imagenes');
 
 //Conexión a la base de datos
 /*mongoose.connect(process.env.MONGODB_URI,
