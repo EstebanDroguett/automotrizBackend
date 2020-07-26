@@ -7,27 +7,27 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
-//const cors = require('cors');
+const cors = require('cors');
 
 //Inicializar variables
 var app = express();
 
 //CORS
-//app.use(cors());
+app.use(cors());
 //app.options('*', cors());
 
-app.use((req, res, next) => {
+/*app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
-});
+});*/
 
 //Body-parser
 // parse application/x-www-form-urlencoded
-/*app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())*/
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 //Importar rutas
 var appRoutes = require('./routes/app');
