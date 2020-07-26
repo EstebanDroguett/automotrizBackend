@@ -13,7 +13,7 @@ const cors = require('cors');
 var app = express();
 
 //CORS
-//app.use(cors());
+app.use(cors());
 //app.options('*', cors());
 
 app.use((req, res, next) => {
