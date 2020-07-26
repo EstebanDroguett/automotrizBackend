@@ -7,7 +7,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const cors = require('cors');
+import cors from 'cors';
+//const cors = require('cors');
 
 //Inicializar variables
 const app = express();
@@ -25,9 +26,8 @@ app.use(cors());
 });*/
 
 //Body-parser
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 //Importar rutas
 const appRoutes = require('./routes/app');
