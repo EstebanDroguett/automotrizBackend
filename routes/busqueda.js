@@ -76,7 +76,7 @@ function buscarVehiculos(busqueda, regex) {
 
     return new Promise((resolve, reject) => {
 
-        Vehiculo.find({ vehiculo: regex })
+        Vehiculo.find({ patente: regex })
             .populate('usuario', 'nombre email img')
             .exec((err, vehiculos) => {
 
